@@ -1,121 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Booking App</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #111;
-    color: white;
-}
-
-.nav {
-    background: black;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.logo {
-    color: hotpink;
-    font-weight: bold;
-}
-
-.nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-}
-
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.section {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-form {
-    max-width: 400px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-input, select, textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-}
-
-button {
-    padding: 12px;
-    background: hotpink;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-.card {
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SabrinaPorn Marketplace</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">SabrinaPorn Marketplace</div>
+        <div class="nav-menu">
+            <div class="nav-item" data-page="home">Home</div>
+            <div class="nav-item" data-page="browse">Browse Listings</div>
+            <div class="nav-item" data-page="create">Create Listing</div>
+            <div class="nav-item" data-page="admin">Admin</div>
+            <div class="nav-item" id="dark-mode-toggle">🌙 Dark Mode</div>
+        </div>
+    </nav>
 
-<div class="nav">
-    <div class="logo">MyBooking</div>
-    <div>
-        <a href="#book">Book</a>
-        <a href="admin.html">Admin</a>
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Content will be dynamically loaded here -->
     </div>
-</div>
 
-<div class="hero">
-    <h1>Book a Private Session</h1>
-    <p>Secure • Discreet • Professional</p>
-</div>
-
-<div class="section" id="book">
-    <h2>Make a Booking</h2>
-
-    <form name="booking" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="booking">
-
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-
-        <select name="service">
-            <option>Standard Session</option>
-            <option>VIP Experience</option>
-            <option>Private Event</option>
-        </select>
-
-        <input type="date" name="date" required>
-
-        <textarea name="message" placeholder="Special requests"></textarea>
-
-        <button type="submit">Submit Booking</button>
-    </form>
-</div>
-
-<div class="section">
-    <h2>Services</h2>
-    <div class="card">Standard Session</div>
-    <div class="card">VIP Experience</div>
-    <div class="card">Custom Request</div>
-</div>
-
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
