@@ -1,211 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Personal Brand</title>
+<title>Booking App</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
 body {
+    margin: 0;
+    font-family: Arial;
     background: #111;
     color: white;
 }
 
-/* Navigation */
-.navbar {
+.nav {
+    background: black;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: #000;
-    position: fixed;
-    width: 100%;
-    top: 0;
 }
 
 .logo {
-    font-size: 22px;
+    color: hotpink;
     font-weight: bold;
-    color: hotpink;
 }
 
-.nav-links {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
-    text-decoration: none;
+.nav a {
     color: white;
-    transition: 0.3s;
+    text-decoration: none;
+    margin-left: 20px;
 }
 
-.nav-links a:hover {
-    color: hotpink;
-}
-
-/* Hero */
 .hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover;
+    padding: 100px 20px;
 }
 
-.hero h1 {
-    font-size: 50px;
+.section {
+    padding: 60px 20px;
+    text-align: center;
 }
 
-.hero p {
-    margin: 20px 0;
-    font-size: 18px;
+form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.btn {
-    padding: 12px 25px;
+input, select, textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 12px;
     background: hotpink;
     border: none;
     color: white;
     cursor: pointer;
-    font-size: 16px;
-}
-
-/* Sections */
-.section {
-    padding: 100px 50px;
-    text-align: center;
-}
-
-.section h2 {
-    margin-bottom: 20px;
-    font-size: 35px;
-    color: hotpink;
-}
-
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
 }
 
 .card {
     background: #222;
-    padding: 30px;
-    width: 250px;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* Contact */
-.contact form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: auto;
-    gap: 15px;
-}
-
-input, textarea {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-/* Footer */
-.footer {
-    background: #000;
     padding: 20px;
-    text-align: center;
-    margin-top: 50px;
-}
-
-@media(max-width:768px){
-    .navbar {
-        flex-direction: column;
-    }
+    border-radius: 10px;
+    margin: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Navigation -->
-<div class="navbar">
-    <div class="logo">MyBrand</div>
-    <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </div>
-</div>
-
-<!-- Hero Section -->
-<div class="hero" id="home">
+<div class="nav">
+    <div class="logo">MyBooking</div>
     <div>
-        <h1>Welcome to My World</h1>
-        <p>Private bookings & exclusive experiences</p>
-        <button class="btn">Book Now</button>
+        <a href="#book">Book</a>
+        <a href="admin.html">Admin</a>
     </div>
 </div>
 
-<!-- About -->
-<div class="section" id="about">
-    <h2>About Me</h2>
-    <p>
-        Welcome to my personal website. Here you can learn more about me,
-        my lifestyle, and how to connect privately.
-    </p>
+<div class="hero">
+    <h1>Book a Private Session</h1>
+    <p>Secure • Discreet • Professional</p>
 </div>
 
-<!-- Services -->
-<div class="section" id="services">
-    <h2>Services</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Private Meet</h3>
-            <p>Exclusive time together.</p>
-        </div>
-        <div class="card">
-            <h3>VIP Experience</h3>
-            <p>Premium personalized moments.</p>
-        </div>
-        <div class="card">
-            <h3>Custom Requests</h3>
-            <p>Tailored experiences just for you.</p>
-        </div>
-    </div>
-</div>
+<div class="section" id="book">
+    <h2>Make a Booking</h2>
 
-<!-- Contact -->
-<div class="section contact" id="contact">
-    <h2>Contact</h2>
-    <form>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea rows="4" placeholder="Your Message"></textarea>
-        <button class="btn">Send Message</button>
+    <form name="booking" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="booking">
+
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <select name="service">
+            <option>Standard Session</option>
+            <option>VIP Experience</option>
+            <option>Private Event</option>
+        </select>
+
+        <input type="date" name="date" required>
+
+        <textarea name="message" placeholder="Special requests"></textarea>
+
+        <button type="submit">Submit Booking</button>
     </form>
 </div>
 
-<!-- Footer -->
-<div class="footer">
-    © 2026 MyBrand | All Rights Reserved
+<div class="section">
+    <h2>Services</h2>
+    <div class="card">Standard Session</div>
+    <div class="card">VIP Experience</div>
+    <div class="card">Custom Request</div>
 </div>
 
 </body>
