@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<style>
+body {
+    background: #111;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+    padding-top: 100px;
+}
+input {
+    padding: 10px;
+}
+button {
+    padding: 10px;
+    background: hotpink;
+    border: none;
+    color: white;
+}
+#panel {
+    display: none;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Admin Login</h2>
+
+<input type="password" id="password" placeholder="Enter Password">
+<button onclick="login()">Login</button>
+
+<div id="panel">
+    <h3>Welcome Admin</h3>
+    <p>Check bookings inside Netlify Dashboard → Forms</p>
+</div>
+
+<script>
+function login() {
+    var pass = document.getElementById("password").value;
+
+    if(pass === "netlify1111") {
+        document.getElementById("panel").style.display = "block";
+        alert("Access Granted");
+    } else {
+        alert("Wrong Password");
+    }
+}
+</script>
+
+</body>
+</html>
